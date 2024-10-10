@@ -45,5 +45,5 @@ Post: http://localhost:8080/user/editStudent
 <h3>Step 7: Delete data</h3>
 
 ```Javascript
-Post: http://localhost:8080/user/delete
+Post: http://localhost:8080/user/deleteStudent
 ```
