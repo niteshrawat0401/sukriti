@@ -1,7 +1,7 @@
 
-For Client and Server
+# For Client and Server
 
-npm install
+npm install 
 
 npm run start
 
