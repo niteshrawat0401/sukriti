@@ -58,16 +58,20 @@ const userSlice = createSlice({
   
 
       builder.addCase(deleteUser.fulfilled, (state, action) => {
-        state.users = state?.users?.filter((user) => user._id !== action.payload);
+        if (Array.isArray(state.users)) {
+          state.users = state?.users?.filter((user) => user._id !== action.payload);
+        }
       });
   
 
-    builder.addCase(updateUser.fulfilled, (state, action) => {
-        const updatedUserIndex = state?.users?.findIndex((user) => user._id === action.payload._id);
-        if (updatedUserIndex !== -1) {
-          state.users[updatedUserIndex] = action.payload;
+      builder.addCase(updateUser.fulfilled, (state, action) => {
+        if (Array.isArray(state.users)) {
+          const updatedUserIndex = state?.users?.findIndex((user) => user._id === action.payload._id);
+          if (updatedUserIndex !== -1) {
+            state.users[updatedUserIndex] = action.payload;
+          }
         }
-      });
+      });     
       
     },
   });

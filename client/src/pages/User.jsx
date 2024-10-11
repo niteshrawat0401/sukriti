@@ -17,12 +17,13 @@ const User = () => {
         dispatch(getUser());
     };
 
-    const onEditClick = (user) => {
+    const onEditClick = async(user) => {
         const updatedUser = {
           ...user,
           name: prompt("Enter new first name", user.name), 
         };
-        dispatch(updateUser({ id: user?._id, data: updatedUser }));
+        await dispatch(updateUser({ id: user?._id, data: updatedUser }));
+        dispatch(getUser());
       };
       
   return (
